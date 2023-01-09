@@ -1,0 +1,73 @@
+"dream transforms  into thoughts, thoughts result into action"
+
+REST: it is a software architectural style created by Roy in 2000 to guide the design of architecture for the web.
+- RE(representational): format json/xml
+- State: Data
+- Transfer: transfer data between parties(client-server)
+
+* Rest guidelines or architectural constraints:
+= 
+> client-server architetcure: client and servers are independent to each other.
+> server should be stateless.
+> Cacheable
+> Layered system: can be helpful in managing scalability and load balancing
+> Uniform Interface: decoupling between client server
+> Code on Demand(optional)
+
+* Rest Concepts:
+-----------------------
+- Resources: anything that's exposed to outer world through application
+- Sub-resources: resources that are belongs to main resource. For example, If Post is main resource then comment is its sub-resource. If Student is main resource then Laptops will be sub-resource.
+Ex: "http://localhost:8080/{id}/sub-resource" -> "http://localhost:8080/students/12/laptops"
+- URI (Uniform Resource Identifier): used to identify resource in server
+- Http Request Methods: defines set of request methods to indicate the desired action to be performed for a given resource. (get,post,put etc)
+- Http Response Codes: Indicate whether a specific http request has been successfully completed. Ex: 200, 404, 500 etc.
+
+CLient Requirements:
+-------------------------------
+CLient wants blogging application where anybody who has account can write blogs and articles and user can comment on blogs/article.
+
+Building Simple blogging application:
+--------------------------------------------------
+- User should create, update, delete & list posts
+- User should add, update, delete, comments on posts
+- Categories the posts according to respective fields.
+- New user should be able to register
+- User should able to login
+- Post include one picture
+
+Some techical terms about requirements to build application:
+------------------------------------------------------------------------------------
+- Proper Login & Register API
+- Posts API includes pagination & sorting
+- Proper user input validation handling
+- Proper Exception handling
+- Role based authentication-role based security with apis
+- JWT based authentication
+- Document all rest apis so that consumer can easy understand
+- Deploy the backend application on any cloud platform(AWS)
+
+Tools Using:
+----------------
+* Framework: spring boot 
+- java 8+, maven, sts, tomcat, spring core, spring security(jwt), spring data jpa(hibernate) etc.
+* MySQL Database
+* Postman Rest Client: api testing
+* Swagger: API documentation
+* AWS-EC2: used for deployment
+
+Resources for Blogging Application:
+--------------------------------------------------
+- User
+- Category
+- Post
+- Comments
+
+Best architecture while using Spring Boot for backend:
+---------------------------------------------------------------------------
+Postman(client) sends request -> Controller (accepts all the requests & passing to Services layer) -> Services (accepts task from controller & performs the business logics & send back the result to controller) -> Repositories/DAO (interacts with the database) -> then finally whatever the result got from services the controller sends that result back to the client with proper output 
+
+- controller is also called as API layer where all the rest endpoints mentioned
+- services is known for business logics
+- repositories is known as dao layer or persistent layer.
+
