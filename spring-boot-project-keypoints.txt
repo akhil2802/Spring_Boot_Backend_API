@@ -80,4 +80,4 @@ STS:
 * Site info:
 --------------
 - Base Url: https://start.spring.io/starter.zip 
-- Full Url: https://start.spring.io/starter.zip?name=springboot-blog-app-api&groupId=com.avakhilkumar.blog&artifactId=springboot-blog-app-api&version=0.0.1-SNAPSHOT&description=This+is+the+complete+backend+API+development+using+Spring+Boot.&packageName=com.avakhilkumar.blog&type=maven-project&packaging=jar&javaVersion=17&language=java&bootVersion=3.0.1&dependencies=devtools&dependencies=lombok&dependencies=mysql&dependencies=data-jpa&dependencies=web
+- Full Url: https://start.spring.io/starter.zip?name=springboot-blog-app-api&groupId=com.avakhilkumar.blog&artifactId=springboot-blog-app-api&version=0.0.1-SNAPSHOT&description=This+is+the+complete+backend+API+development+using+Spring+Boot.&packageName=com.avakhilkumar.blog&type=maven-project&packaging=jar&javaVersion=17&language=java&bootVersion=3.0.1&dependencies=devtools&dependencies=lombok&dependencies=data-jpa&dependencies=mysql&dependencies=web
