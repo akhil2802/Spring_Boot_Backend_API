@@ -81,3 +81,29 @@ STS:
 --------------
 - Base Url: https://start.spring.io/starter.zip 
 - Full Url: https://start.spring.io/starter.zip?name=springboot-blog-app-api&groupId=com.avakhilkumar.blog&artifactId=springboot-blog-app-api&version=0.0.1-SNAPSHOT&description=This+is+the+complete+backend+API+development+using+Spring+Boot.&packageName=com.avakhilkumar.blog&type=maven-project&packaging=jar&javaVersion=17&language=java&bootVersion=3.0.1&dependencies=devtools&dependencies=lombok&dependencies=data-jpa&dependencies=mysql&dependencies=web
+
+Basics of Validation:
+---------------------------
+- Java bean is validated with JSR 380 known as Bean Validation 2.0.
+- JSR 380 is specification for the Java API for bean validation. Properties of bean meet the specific criteria.
+- For validation different annotations is used like @NotNull, @Min, @Size etc.
+- Hibernate Validator is a implementation of validation api.
+
+Important Annotations for Validations:
+-----------------------------------------------------
+@NotNull
+@Email
+@Size
+@Min
+@Max
+@NotEmpty etc..
+
+How to use validation in SPringBoot:
+--------------------------------------------------
+- Spring Boot provides support forhibernate validator.
+- We have a dependency called "spring-boot-starter-validation".
+
+3 Steps to use validation in spring boot:
+- Use dependency inside pom.xml file
+- Use annotations on dto layer
+- Valid this annotations by including @Valid where we're accepting the dto data. ie, in controller layer.
