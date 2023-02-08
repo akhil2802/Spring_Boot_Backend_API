@@ -92,7 +92,21 @@ public class PostController {
 		
 		@DeleteMapping("/posts/{postId}")
 		public ResponseEntity<ApiResponse> deletePost(@PathVariable Integer postId) {
+			
 			this.postService.deletePost(postId); 
+			
 			return new ResponseEntity<ApiResponse>(new ApiResponse("Post deleted Successfully.", true), HttpStatus.OK);
 		}
+		
+	// SEARCH POST:
+		
+		@GetMapping("/posts/search/{keywords}")
+		public ResponseEntity<List<PostDto>> searchPostByTitle(@PathVariable String keywords) {
+			
+			List<PostDto> searchedPosts = this.postService.searchPosts(keywords);
+			
+			return new ResponseEntity<List<PostDto>>(searchedPosts, HttpStatus.OK);
+		}
+							
+		
 }

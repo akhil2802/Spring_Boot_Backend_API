@@ -2,7 +2,6 @@ package com.avakhilkumar.blog.services;
 
 import java.util.List;
 
-import com.avakhilkumar.blog.entities.Post;
 import com.avakhilkumar.blog.payloads.PostDto;
 import com.avakhilkumar.blog.payloads.PostResponse;
 
