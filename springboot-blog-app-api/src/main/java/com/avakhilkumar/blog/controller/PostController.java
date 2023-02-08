@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,8 +50,13 @@ public class PostController {
 	// GET ALL POSTS:
 	
 		@GetMapping("/posts")
-		public ResponseEntity<PostResponse> getAllPosts(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber, @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize) {
-			PostResponse postDtos = this.postService.getAllPost(pageNumber, pageSize);
+		public ResponseEntity<PostResponse> getAllPosts(
+				@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber, 
+				@RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize, 
+				@RequestParam(value = "sortBy", defaultValue = "postId", required = false) String sortBy,
+				@RequestParam(value = "sortOrder", defaultValue = "asc", required = false) String sortOrder) {
+			
+			PostResponse postDtos = this.postService.getAllPost(pageNumber, pageSize, sortBy, sortOrder);
 			return new ResponseEntity<PostResponse>(postDtos, HttpStatus.OK); 
 		}
 		

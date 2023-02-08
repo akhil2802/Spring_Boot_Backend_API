@@ -3,13 +3,14 @@ package com.avakhilkumar.blog.services.impl;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.avakhilkumar.blog.entities.Category;
@@ -80,9 +81,11 @@ public class PostServiceImpl implements PostService {
 	// GET ALL POSTS:
 
 	@Override
-	public PostResponse getAllPost(Integer pageNumber, Integer pageSize) {
+	public PostResponse getAllPost(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder) {
 		
-		Pageable pageInfo = PageRequest.of(pageNumber, pageSize);
+		Sort sort = sortOrder.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+		
+		Pageable pageInfo = PageRequest.of(pageNumber, pageSize, sort);
 		Page<Post> pagePost = this.postRepo.findAll(pageInfo);
 		
 		List<Post> posts = pagePost.getContent();
