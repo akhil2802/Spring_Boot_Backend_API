@@ -3,8 +3,11 @@ package com.avakhilkumar.blog.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -22,6 +25,7 @@ import ch.qos.logback.core.pattern.color.BoldCyanCompositeConverter;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -41,6 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.disable()
 		.authorizeHttpRequests()
 		.requestMatchers("/api/v1/auth/login")
+		.permitAll()
+		.requestMatchers(HttpMethod.GET)
 		.permitAll()
 		.anyRequest()
 		.authenticated()
